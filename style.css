@@ -1,0 +1,195 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contextmenu {
+    opacity: 0;
+    pointer-events: none;
+    width: 300px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    margin: 20px;
+    padding: 20px 0;
+    border-radius: 20px;
+    color: #fff;
+    background: #1f2125;
+    z-index: 10000000;
+    transition-property: opacity, left, top;
+    transition-duration: 300ms;
+}
+
+.contextmenu hr {
+    margin: 10px 0;
+}
+
+.contextmenu h4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px 10px 50px;
+    cursor: pointer;
+    user-select: none;
+    transition-property: background, color;
+    transition-duration: 350ms;
+}
+
+.contextmenu h4:hover {
+    color: #000;
+    background: #f0f2f5;
+}
+
+.contextmenu h4 span {
+    font-size: .7rem;
+    font-weight: 400;
+}
+
+
+@media print {
+    .contextmenu {
+        display: none;
+    }
+}
+
+
+/* google mail search bar */
+
+.googleSearch {
+    width: min(800px, 90%);
+    height: 70px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.googleSearch .burgerMenu {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 300ms;
+}
+
+.burgerMenu li {
+    width: 90%;
+    height: 3px;
+    margin: 6px auto;
+    list-style: none;
+    transform-origin: left;
+    background: #f0f2f5;
+    transition-property: width, height, transform, opacity;
+    transition-duration: 300ms;
+    outline: 1px solid;
+}
+
+
+.burgerMenu.active li:first-child {
+    transform: translate(5px, -2px) rotate(45deg);
+}
+.burgerMenu.active li:nth-child(2) {
+    opacity: 0;
+}
+.burgerMenu.active li:last-child {
+    transform: translate(5px, -1px) rotate(-45deg);
+}
+
+
+.burgerMenu.arrowTransform li:last-child {
+    outline: none;
+    transform: rotate(-41.5deg);
+    border-top-right-radius: 20px;
+    width: 50%;
+}
+.burgerMenu.arrowTransform li:nth-child(2) {
+    opacity: 0;
+}
+.burgerMenu.arrowTransform li:first-child {
+    outline: none;
+    transform: rotate(41.5deg);
+    border-bottom-right-radius: 20px;
+    width: 50%;
+}
+
+
+.googleSearch .search {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.search input {
+    padding: 0 20px 0 50px;
+    width: inherit;
+    height: inherit;
+    outline: none;
+    border: none;
+    color: #f0f2f5;
+    background: #343a40;
+    border-radius: 5px;
+}
+
+.search input:is(:valid, :focus) + .google {
+    top: 0;
+    color: #fff;
+    background: #343a40;
+}
+
+.search .google {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0 2px;
+    font-size: 1.5rem;
+    border-radius: 2px;
+    transform: translate(-50%, -50%);
+    font-weight: 800;
+    user-select: none;
+    transition-property: top, color, background, transform, left;
+    transition-duration: 300ms;
+}
+
+.google span {
+    display: inline-block;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 2rem;
+    transition-property: width, height, transform;
+    transition-duration: 250ms;
+}
+
+.google span.animationStarted {
+    animation: animating 900ms var(--delay) linear infinite;
+}
+
+@keyframes animating {
+    0% {
+        transform: translateY(-10px);
+    }
+    35% {
+        transform: translateY(15px);
+    }
+    70% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+
+.profile {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: #ccc;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
